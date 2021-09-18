@@ -1,0 +1,50 @@
+sudo docker run -v /home/lenovo/Documents/redis-node/7000/redis.conf:/usr/local/etc/redis/redis.conf -d --net=host --name myredis-0 redis redis-server /usr/local/etc/redis/redis.conf
+sudo docker run -v /home/lenovo/Documents/redis-node/7001/redis.conf:/usr/local/etc/redis/redis.conf -d --net=host --name myredis-1 redis redis-server /usr/local/etc/redis/redis.conf
+sudo docker run -v /home/lenovo/Documents/redis-node/7002/redis.conf:/usr/local/etc/redis/redis.conf -d --net=host --name myredis-2 redis redis-server /usr/local/etc/redis/redis.conf
+sudo docker run -v /home/lenovo/Documents/redis-node/7003/redis.conf:/usr/local/etc/redis/redis.conf -d --net=host --name myredis-3 redis redis-server /usr/local/etc/redis/redis.conf
+sudo docker run -v /home/lenovo/Documents/redis-node/7004/redis.conf:/usr/local/etc/redis/redis.conf -d --net=host --name myredis-4 redis redis-server /usr/local/etc/redis/redis.conf
+sudo docker run -v /home/lenovo/Documents/redis-node/7005/redis.conf:/usr/local/etc/redis/redis.conf -d --net=host --name myredis-5 redis redis-server /usr/local/etc/redis/redis.conf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+edd9daee73abfc7e4252f7a27b8196b3a234ca6cf955b8d22e39f34d8a1c3096
+ee610a122c6524b5d2ecc79bdccbc2ceb49a5e178c47121fad98c2005766f768
+55d8ba1d22409e1aa8b51d473d22abacb556fa13bbf1d0551971c526ce1915ad
+
+
+
+
+
+
+
+
+
+sudo docker exec -it abd6cbf9cb4e sh
+sudo docker exec -it 5dcd7dcd72a0 sh
+sudo docker exec -it 34dd71e57b1f sh
+
+sudo docker start edd9daee73ab
+sudo docker start ee610a122c65
+sudo docker start 55d8ba1d2240
+
+
+chmod 755 redis.conf
+
+
+redis-cli --cluster create 127.0.0.1:7000 127.0.0.1:7001 127.0.0.1:7002 127.0.0.1:7003 127.0.0.1:7004 127.0.0.1:7005  --cluster-replicas 1
+redis-cli --cluster create 127.0.0.1:6379 127.0.0.1:6379 127.0.0.1:6379  --cluster-replicas 1
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
