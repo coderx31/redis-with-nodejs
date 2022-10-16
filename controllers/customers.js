@@ -1,6 +1,3 @@
-//const redis = require('redis');
-//const client = redis.createClient(7000);
-
 const Redis = require('ioredis');
 const cluster = new Redis([
     {
